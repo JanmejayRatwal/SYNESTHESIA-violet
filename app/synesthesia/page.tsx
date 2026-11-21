@@ -16,6 +16,8 @@ export default function Synesthesia() {
   const [dragging, setDragging] = useState<number|null>(null);
   const [cut, setCut] = useState(false);
   const [fireworks, setFireworks] = useState(false);
+  const [show27, setShow27] = useState(false);
+  const [settled27, setSettled27] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
   const audio = useRef<AudioContext|null>(null);
   const cakeRef = useRef<HTMLDivElement>(null);
@@ -48,7 +50,9 @@ export default function Synesthesia() {
   useEffect(() => {
     if (stage === "message") {
       const a = window.setTimeout(() => setFireworks(true), 350);
-      return () => { clearTimeout(a); };
+      const b = window.setTimeout(() => setShow27(true), 1900);
+      const c = window.setTimeout(() => setSettled27(true), 3300);
+      return () => { clearTimeout(a); clearTimeout(b); clearTimeout(c); };
     }
   }, [stage]);
 
@@ -119,8 +123,8 @@ export default function Synesthesia() {
         <div className="birthday-copy">
           <span className="eyebrow">23 · 11 · 2026</span>
           <div className="ornament">✧ ✦ ✧</div>
-          <h1>Happy<br/><em>27th Birthday</em></h1>
-          <h2>Chai Paglu Didi.</h2>
+          <h1>Happy<br/><em>{settled27 && <span className="age-inline">27</span>}th Birthday</em></h1>
+          <h2>Chai Paglu Didi</h2>
           <p>In this enormous universe, among billions of stars, I&apos;m grateful that I got you as my sister.<br/><br/>No matter where life takes us, you&apos;ll always have me.</p>
           <span className="signature">WITH LOVE, YOUR LITTLE BROTHER</span>
         </div>
@@ -129,6 +133,7 @@ export default function Synesthesia() {
           {Array.from({length:9},(_,i)=><i key={`p${i}`} className={`balloon balloon-${i%5}`} style={{left:`${(i*13)%94+2}%`,animationDelay:`${(i%5)*.25}s`}}/>)}
           <div className="firework-label">✦  ✧  ✦</div>
         </div>}
+        {show27 && !settled27 && <div className="age-number">27</div>}
       </section>}
       {!soundOn && <button className="sound-toggle" onClick={()=>play(523,.35)} aria-label="Enable sound">♫ SOUND</button>}
     </main>

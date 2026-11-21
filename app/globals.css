@@ -49,6 +49,7 @@ h1 em{font-weight:300;color:#d8baff}
 .age-number{position:fixed;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%) scale(5);font-family:Arial,sans-serif;font-size:min(58vw,330px);font-weight:800;line-height:1;color:#f5eaff;text-shadow:0 0 25px #d9aaff,0 0 90px #a35dff;animation:big27 1.5s cubic-bezier(.18,.8,.25,1) both;pointer-events:none}
 .age-number.settled{position:absolute;left:auto;top:22px;right:25px;transform:none;font-size:clamp(42px,12vw,70px);animation:settle27 1s cubic-bezier(.2,.8,.2,1) both;text-shadow:0 0 20px #b97cff}
 .sound-toggle{position:absolute;right:18px;bottom:16px;z-index:10;border:1px solid #b58bd866;border-radius:30px;background:#170d2b99;color:#d9c2ef;padding:9px 13px;font:9px Arial,sans-serif;letter-spacing:.2em}
+.age-inline{display:inline-block;margin-right:.01em;animation:inline27 .8s cubic-bezier(.2,.8,.2,1) both}
 @keyframes pulse{50%{box-shadow:0 0 45px #b77cff99,inset 0 0 30px #b77cff66;transform:translate(-50%,-50%) scale(1.08)}}
 @keyframes twinkle{to{opacity:.55;text-shadow:0 0 25px #e4c6ff,0 0 40px #a96cff}}
 @keyframes flicker{to{transform:scale(1.15) translateY(-3px);opacity:.75}}
@@ -58,4 +59,5 @@ h1 em{font-weight:300;color:#d8baff}
 @keyframes floatball{0%{transform:translateY(0) rotate(-8deg);opacity:0}10%{opacity:1}100%{transform:translateY(-115vh) rotate(15deg);opacity:.85}}
 @keyframes big27{0%{opacity:0;transform:translate(-50%,-50%) scale(5)}18%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes settle27{from{transform:translate(50vw,25vh) scale(2.5);opacity:0}to{transform:translate(0,0) scale(1);opacity:1}}
+@keyframes inline27{from{opacity:0;transform:translateY(-18px) scale(1.8);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
 @media(max-height:700px){.universe{padding-top:18px;padding-bottom:24px}.star-playfield{height:36vh;min-height:240px}.cake-scene{height:250px}.reveal-stage{min-height:88vh}.birthday-copy p{font-size:12px}}
